@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-depth_level = 32
+depth_level = 4    # N level
 # rgb2gray='gray'
 rgb2gray='rgb'
 
@@ -9,11 +9,11 @@ path = 'lenna.png'
 A = plt.imread(path)            # 원본영상
 
 if rgb2gray=='gray':    # RGB -> GRAY
-    A = np.sqrt(np.power(A[:,:,0],2) + np.power(A[:,:,1],2) + np.power(A[:,:,2],2))
+    A = (A[:,:,0] + A[:,:,1] + A[:,:,2])/3
 else:                  
     rgb2gray=None
     
-A_ = np.round((depth_level-1)*A)/(depth_level-1)    # N level로 영상을 바꾼다.
+A_ = np.round((depth_level-1)*A)/(depth_level-1)    # N level로 영상을 바꾼다. 양자화 Re-Quantization
 
 # plot
 fig = plt.figure()
