@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-depth_level = 4    # N level
+depth_level = 128    # N level
 
 path = 'lenna.png'
 A = plt.imread(path)            # 원본영상

@@ -2,8 +2,7 @@ import cv2, time
 import numpy as np
 
 # haar cascade 기반 face detection
-# haar cascade 기반 face detection
-capture = cv2.VideoCapture(0)   # 비디오 캡처
+capture = cv2.VideoCapture(2)   # 비디오 캡처, video 장치 번호
 capture.set(cv2.CAP_PROP_FRAME_WIDTH, 640)  # width
 capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 480) # height
 

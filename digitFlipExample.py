@@ -13,9 +13,9 @@ A = np.array([[0,0,0,0,0,0,0,0,0,0], # 원본영상, 숫자2
             [0,0,0,0,0,0,0,0,0,0],])
 B = np.identity(n=10)[::-1]         # 입력 행렬 B
 
-C_xflip = np.matmul(A,B)            # 좌우반전
-C_yflip = np.matmul(B,A)            # 상하반전
-C_xyflip = np.matmul(C_yflip,B)     # 상하좌우반전
+C_xflip = np.matmul(A,B)            # 좌우반전  AB
+C_yflip = np.matmul(B,A)            # 상하반전  BA
+C_xyflip = np.matmul(C_yflip,B)     # 상하좌우반전  BAB
 
 # plot
 fig = plt.figure()
