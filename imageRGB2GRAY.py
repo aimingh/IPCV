@@ -25,7 +25,8 @@ def gray2rgb(img):
 
 path = 'lenna.png'
 img_ = plt.imread(path)            # 원본영상
-img = np.uint8(255*img_)
+if img_.dtype != np.uint8
+    img = np.uint8(255*img_)            
 
 img_gray1 = rgb2gray(img)                                               # 흑백 영상으로 변환    (512,512,3)->(512,512)
 img_gray2 = cv2.cvtColor(img[:,:,::-1], cv2.COLOR_BGR2GRAY)
