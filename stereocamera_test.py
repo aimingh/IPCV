@@ -1,5 +1,5 @@
 import numpy as np
-import cv2
+from cv2 import cv2
 
 def data2img(data, normalization = 1):  # normalization, type castinf(uint8). gray2rgb
     if normalization == 1:

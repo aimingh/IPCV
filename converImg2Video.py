@@ -1,5 +1,5 @@
 import numpy as np
-import cv2, os
+from cv2 import cv2, os
 
 def write_video(filelist, imgdir, filename, savedir):
     img = cv2.imread(imgdir + '/' + filelist[0])

@@ -1,5 +1,5 @@
 import numpy as np
-import cv2, os
+from cv2 import cv2, os
 
 def camera2video():
     capture = cv2.VideoCapture(0)   # 비디오 캡처, video 장치 번호

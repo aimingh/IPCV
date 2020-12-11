@@ -1,4 +1,4 @@
-import cv2, time
+from cv2 import cv2, time
 import numpy as np
 
 # opencv video 입출력

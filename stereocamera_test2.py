@@ -1,6 +1,6 @@
 import numpy as np
 from sklearn.preprocessing import normalize
-import cv2
+from cv2 import cv2
 
 def tmp():
     capture = cv2.VideoCapture(2)   # 비디오 캡처, video 장치 번호

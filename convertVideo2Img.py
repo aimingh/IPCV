@@ -1,5 +1,5 @@
 import numpy as np
-import cv2, os
+from cv2 import cv2, os
 
 def writeFrame(videocapture, path, second, cnt):
     videocapture.set(cv2.CAP_PROP_POS_MSEC, second*1000)
