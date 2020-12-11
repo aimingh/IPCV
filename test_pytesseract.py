@@ -20,6 +20,10 @@ def boxing(img, words):
             img_box = cv2.rectangle(img_box, (x, y), (x + w, y + h), (0, 255, 0), 2)
             # img_box = cv2.putText(img_box, words['text'][i], (x, y), cv2.FONT_HERSHEY_COMPLEX, 0.5,(0, 0, 255), 1)
             pill_image = Image.fromarray(img_box)
+            # 나눔글꼴 설치
+            # sudo apt-get install fonts-nanum*
+            # 폰트캐쉬 삭제
+            # sudo fc-cache -fv
             font_path = '/usr/share/fonts/truetype/nanum/NanumGothicExtraBold.ttf'
             draw = ImageDraw.Draw(pill_image)
             draw.text((x, y), words['text'][i], font=ImageFont.truetype(font_path, 20), fill=(0, 0, 255))
