@@ -31,14 +31,23 @@ def adaptiveGaussianThreshold(img, kernel_size = 11, kernel_sigma = 3, c = 0):
             th = np.sum(kernel*img_padding[i:i+kernel_size, j:j+kernel_size])
             if img[i,j] > th - c:
                 img_th[i,j] = 255
+                
+    fig = plt.figure()
+    a1 = fig.add_subplot(1,3,1)    
+    a1.imshow(img, cmap = 'gray')       
+    a2 = fig.add_subplot(1,3,2)    
+    a2.imshow(img_padding, cmap = 'gray')  
+    a3 = fig.add_subplot(1,3,3)    
+    a3.imshow(kernel, cmap = 'gray')  
+    plt.show()
 
     return img_th
 
 if __name__ == "__main__":
     img = plt.imread('datas/images/sudoku.jpg')
 
-    img_th = adaptiveGaussianThreshold(img, 11, 3, 4)
-    img_th2 = cv2.adaptiveThreshold(rgb2gray(img),255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY,11,4)
+    img_th = adaptiveGaussianThreshold(img, 11, 3, 0)
+    img_th2 = cv2.adaptiveThreshold(rgb2gray(img),255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY,11,0)
 
     fig = plt.figure()
     a1 = fig.add_subplot(1,3,1)    
