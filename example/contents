@@ -1,0 +1,13 @@
+Image Processing
+    1. Crop image
+    2. Join Multiple Images (Concatenate image)
+    3. Previous and Current Frame different from Camera (difference of images)
+    4. Gray scale (RGB image to gray image)
+    5.Image Blur (Smoothing, noise remove)
+    Threshold (image to binary image, global threshold)
+    7.Adaptive threshold
+    Resize image
+    Edge detection
+    Dilation
+    Erosion
+    Create Warp (Image warping)
