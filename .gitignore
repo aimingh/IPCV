@@ -5,3 +5,4 @@ YOLO/yolov3.cfg
 YOLO/yolov3.weights
 neg/*
 __pycache__/*
+tmp.yml
