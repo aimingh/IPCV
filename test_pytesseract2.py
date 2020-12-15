@@ -61,6 +61,14 @@ def preprocessing2(img):
     cv2.waitKey()
     return bi_img
 
+def get_OCR2(img):
+    custom_config = r'--oem 3 --psm 6 -l kor+kor_vert+eng'
+    words = pytesseract.image_to_data(img, config=custom_config,output_type=pytesseract.Output.DICT)
+
+    bi_img = cv2.cvtColor(img, cv2.COLOR_GRAY2RGB)
+    bi_img_boxing = boxing(bi_img, words)
+    return bi_img_boxing, words
+
 def get_OCR(filename):
     custom_config = r'--oem 3 --psm 6 -l kor+kor_vert+eng'
 

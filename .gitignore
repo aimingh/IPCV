@@ -3,3 +3,4 @@ datas/*
 YOLO/coco.names
 YOLO/yolov3.cfg
 YOLO/yolov3.weights
+neg/*

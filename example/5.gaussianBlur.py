@@ -26,14 +26,14 @@ def gaussianBlur(img, kernel_size = 11, kernel_sigma = 3):
     img_padding = np.zeros((x+kernel_size-1, y+kernel_size-1), img.dtype)
     pad = int(0.5*(kernel_size-1))
     img_padding[pad:-pad,pad:-pad] = img
-    img_th = np.zeros(img.shape, img.dtype)
+    img_blur = np.zeros(img.shape, img.dtype)
     kernel = gkern(kernel_size, kernel_sigma)
 
     for i in range(x):
         for j in range(y):
-            img_th[i,j] = np.sum(kernel*img_padding[i:i+kernel_size, j:j+kernel_size])
+            img_blur[i,j] = np.sum(kernel*img_padding[i:i+kernel_size, j:j+kernel_size])
 
-    return img_th
+    return img_blur
 
 def gaussianBlur_color(img):
     result = np.zeros(img.shape, img.dtype)
