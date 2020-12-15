@@ -42,6 +42,7 @@ def try_wrap():
 
     img_wrap = wrapping(img, pts)
     img_gray, _, _ = preprocessing(img_wrap)
+    
     img_gray2 = cv2.resize(img_gray, None, fx=0.5, fy=0.5, interpolation=cv2.INTER_CUBIC)
     img_th = cv2.adaptiveThreshold(img_gray2,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY,11,-10)
     # ret,img_th = cv2.threshold(img_sharp,127,255,cv2.THRESH_BINARY)

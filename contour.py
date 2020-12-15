@@ -35,32 +35,33 @@ def example():
 ## Try Detect shapes of objects with Contour ##
 ###############################################
 def rectwithname(img, contours, e=0.02):
+    result = img.copy()
     for cnt in contours:
         x, y, w, h = cv.boundingRect(cnt)
         epsilon = e*cv.arcLength(cnt, True)
         approx = cv.approxPolyDP(cnt, epsilon, True)
 
-        cv.rectangle(img,(x,y),(x+w,y+h),(255,0,255),2)
         if len(approx)==3:
-            cv.putText(img, "triangle", (x, y-5), cv.FONT_HERSHEY_COMPLEX, 0.5,(0, 0, 0), 1)
+            text = "triangle"
         elif len(approx)==4:
-            if w == h:
-                cv.putText(img, "square", (x, y-5), cv.FONT_HERSHEY_COMPLEX, 0.5,(0, 0, 0), 1)
-            else:
-                cv.putText(img, "rectangle", (x, y-5), cv.FONT_HERSHEY_COMPLEX, 0.5,(0, 0, 0), 1)
+            text = "square" if w == h else 'rectangle'
         else:
-            cv.putText(img, "circle", (x, y-5), cv.FONT_HERSHEY_COMPLEX, 0.5,(0, 0, 0), 1)
-    return img
+            text = "circle"
+        cv.rectangle(result,(x,y),(x+w,y+h),(255,0,255),2)
+        cv.putText(result, text, (x, y-5), cv.FONT_HERSHEY_COMPLEX, 0.5,(0, 0, 0), 1)
+    return result
 
 def try_Detect_shape_with_contour():
     img_rgb = cv.imread('datas/images/shapes.png')
+
     img_gray = cv.cvtColor(img_rgb, cv.COLOR_RGB2GRAY)
     _, img_bi = cv.threshold(img_gray, 127, 255, cv.THRESH_BINARY_INV + cv.THRESH_OTSU)
 
     contours, _ = cv.findContours(img_bi, cv.RETR_LIST, cv.CHAIN_APPROX_SIMPLE)
     img_approx = rectwithname(img_rgb, contours)
 
-    cv.imshow("result", img_approx)
+    final = np.hstack((img_rgb, cv.cvtColor(img_bi, cv.COLOR_GRAY2BGR), img_approx))
+    cv.imshow("result", final)
     cv.waitKey()
 
 if __name__ == "__main__":
