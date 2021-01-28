@@ -1,4 +1,5 @@
-from cv2 import cv2, time
+from cv2 import cv2 
+import time
 import numpy as np
 
 # haar cascade 기반 face detection

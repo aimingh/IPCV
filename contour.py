@@ -65,5 +65,5 @@ def try_Detect_shape_with_contour():
     cv.waitKey()
 
 if __name__ == "__main__":
-    # example() 
-    try_Detect_shape_with_contour()
+    example() 
+    # try_Detect_shape_with_contour()
